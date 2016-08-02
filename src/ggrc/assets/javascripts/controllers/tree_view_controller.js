@@ -312,14 +312,14 @@ can.Control('CMS.Controllers.TreeLoader', {
          {} // all hope is lost, skip filtering
         ).display_list;
 
-      // check if all objects selected, then skip filter
-      if (child_tree_display_list === undefined ||
-          child_tree_display_list.length === this.options.parent.options.child_tree_model_list.length) {
+      // check if display list is undefined
+      if (child_tree_display_list === undefined) {
         // skip filter
         filtered_items = items;
       } else if (child_tree_display_list.length === 0) { // no item is selected to filter, so just return
         return new $.Deferred().resolve();
       } else {
+        // even if all objects are selected, don't skip filter
         for (i = 0; i < items.length; i++) {
           if (child_tree_display_list.indexOf(items[i].instance.class.model_singular) !== -1) {
             filtered_items.push(items[i]);
@@ -1076,7 +1076,7 @@ CMS.Controllers.TreeLoader('CMS.Controllers.TreeView', {
   // add child options to every item (TreeViewOptions instance) in the drawing list at this level of the tree.
   add_child_lists: function (list) {
     var that = this;
-    var currentList = can.makeArray(list);
+    var currentList = can.makeArray(list); 
     var listWindow = [];
     var finalDfd;
     var queue = [];
