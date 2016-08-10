@@ -75,6 +75,7 @@
       limit: '@',
       mapping: null,
       required: '@',
+      deferred: '@',
       type: null,
       toggle_add: false,
       mapped_people: [],
