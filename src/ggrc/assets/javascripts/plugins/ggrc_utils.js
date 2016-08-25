@@ -275,7 +275,7 @@
           return value === '0';
         },
         'Rich Text': function (value) {
-          return _.isEmpty($(value).text());
+          return _.isEmpty($('<span>' + value).text());
         }
       };
       if (types.indexOf(type) >= 0 && options[type]) {
