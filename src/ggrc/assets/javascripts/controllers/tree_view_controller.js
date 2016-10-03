@@ -855,9 +855,6 @@ CMS.Controllers.TreeLoader('CMS.Controllers.TreeView', {
     if (!(el instanceof jQuery)) {
       el = $(el);
     }
-    if (!el.offset()) {
-      return 0;
-    }
     el_o = el.offset().top;
     el_h = el.outerHeight();
     above_top = (el_o + el_h - se_o) / se_h;
