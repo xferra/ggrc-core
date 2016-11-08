@@ -205,6 +205,7 @@ dashboard-js-files:
   - components/view-object-button/view-object-button.js
   - components/add-object-button/add-object-button.js
   - components/effective-dates/effective-dates.js
+  - components/snapshotter/individual-update.js
   #- d3.v2.js
   #- related_graph.js
 

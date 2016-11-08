@@ -41,6 +41,15 @@ or #is_allowed' 'update' instance '\
             </li>
 
             <li>
+                <snapshot-individual-update instance="instance">
+                    <a href="javascript://" can-click="updateIt">
+                        <i class="fa fa-refresh"></i>
+                        Update to latest version
+                    </a>
+                </snapshot-individual-update>
+            </li>
+
+            <li>
                 <a href="{{instance.originalLink}}">
                     <i class="fa fa-long-arrow-right"></i>
                     View original {{instance.class.title_singular}}
