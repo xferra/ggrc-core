@@ -65,7 +65,6 @@ permissions = {
         "ObjectOwner",
         "Person",
         "Program",
-        "Request",
         "Revision",
         "Role",
         "UserRole",
