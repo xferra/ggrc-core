@@ -14,7 +14,7 @@ class TestAssessmentTemplatesImport(converters.TestCase):
   """Assessment Template import tests."""
 
   def setUp(self):
-    """Set up for Request test cases."""
+    """Set up for Assessment Template test cases."""
     converters.TestCase.setUp(self)
     self.client.get("/login")
 
