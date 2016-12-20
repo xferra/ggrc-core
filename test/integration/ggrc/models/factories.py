@@ -265,14 +265,6 @@ class RegulationFactory(TitledFactory):
     model = models.Regulation
 
 
-class RequestFactory(TitledFactory):
-
-  class Meta:
-    model = models.Request
-
-  request_type = "documentation"
-
-
 class OrgGroupFactory(TitledFactory):
 
   class Meta:
