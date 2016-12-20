@@ -110,11 +110,8 @@ def all_cache_entries():
 
 def all_mapping_entries():
   ret = [
-      mapping('Audit', 'requests'),
       mapping('Audit', 'program'),
-      mapping('Request', 'audit'),
       mapping('CustomAttributeValue', 'attributable', True),
-      mapping('Request', 'responses'),
       mapping('ObjectDocument', 'document'),
       mapping('ObjectDocument', 'documentable', True),
       mapping('ObjectOwner', 'person'),
