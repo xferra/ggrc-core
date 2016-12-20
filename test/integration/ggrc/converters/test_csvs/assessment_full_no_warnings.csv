@@ -2,7 +2,7 @@ Object type,,,,,,,,,,,,,,
 Assessment,Code*,Audit*,Title*,Description,Notes,State*,Assessor*,Creator*,Recipients,Send by default,url,evidence,map:project,map: Market
 ,Assessment 1,Audit,Assessment title 1,Some desc 1,notes 1,NOT STARTED,"user1@a.com
 user2@a.com","user2@a.com
-user5@a.com","Verifier, Requester",Yes,http://i.imgur.com/Lppr247.jpg,"http://i.imgur.com/Lppr247.jpg evidence 啕 title 1
+user5@a.com","Verifier, Assessor",Yes,http://i.imgur.com/Lppr247.jpg,"http://i.imgur.com/Lppr247.jpg evidence 啕 title 1
 http://i.imgur.com/qA0l5tb.gifv some title 2","proj-1
 proj-2
 proj-3",mkt-1
