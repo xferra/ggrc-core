@@ -54,7 +54,6 @@ def all_cache_entries():
       resource('projects', 'Project'),
       resource('programs', 'Program'),
       resource('relationships', 'Relationship'),
-      resource('requests', 'Request'),
       resource('revisions', 'Revision'),
       resource('sections', 'Section'),
       resource('clauses', 'Clause'),
