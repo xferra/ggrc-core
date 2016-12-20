@@ -102,14 +102,6 @@ class RelatedAssigneesColumnHandler(RelatedPersonColumnHandler):
                                                         **options)
 
 
-class RelatedRequestersColumnHandler(RelatedPersonColumnHandler):
-
-  def __init__(self, row_converter, key, **options):
-    self._assignee_type = "Requester"
-    super(RelatedRequestersColumnHandler, self).__init__(row_converter, key,
-                                                         **options)
-
-
 class RelatedVerifiersColumnHandler(RelatedPersonColumnHandler):
 
   def __init__(self, row_converter, key, **options):
