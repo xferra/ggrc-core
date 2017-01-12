@@ -27,6 +27,7 @@ dashboard-js-files:
   - canjs/can.map.attributes.js
   - canjs/can.map.backup.js
   - canjs/can.map.define.js
+  - canjs/can.stache.js
   - wysihtml5/advanced.js
   - wysihtml5/wysihtml5-0.4.0pre.js
   - wysihtml5/bootstrap-wysihtml5-0.0.2.js
