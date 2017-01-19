@@ -21,7 +21,7 @@ class TestAssessmentImport(converters.TestCase):
   """
 
   def setUp(self):
-    """ Set up for Request test cases """
+    """Set up for Assessment test cases."""
     converters.TestCase.setUp(self)
     self.client.get("/login")
 
