@@ -6,7 +6,7 @@ from flask.json import dumps
 
 from ggrc.converters import get_importables
 from ggrc.models.reflection import AttributeInfo
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 
 THIS_ABS_PATH = abspath(dirname(__file__))
 CSV_DIR = join(THIS_ABS_PATH, 'test_csvs/')

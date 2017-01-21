@@ -14,7 +14,7 @@ from flask import json
 from ggrc import db
 from ggrc.models import CustomAttributeDefinition as CAD
 
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 from integration.ggrc.models import factories
 
 

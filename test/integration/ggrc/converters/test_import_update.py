@@ -3,7 +3,7 @@
 
 """Tests for bulk updates with CSV import."""
 
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 
 from ggrc import models
 

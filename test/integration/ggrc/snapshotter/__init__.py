@@ -10,7 +10,7 @@ import ggrc.models as models
 
 import integration.ggrc
 from integration.ggrc import api_helper
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 import integration.ggrc.generator
 from integration.ggrc.models import factories
 

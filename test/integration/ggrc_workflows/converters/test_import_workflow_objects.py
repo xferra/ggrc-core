@@ -9,7 +9,7 @@ from os.path import abspath
 from os.path import dirname
 from os.path import join
 
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 
 from ggrc import db
 from ggrc.converters import errors

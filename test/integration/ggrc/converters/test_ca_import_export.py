@@ -5,7 +5,7 @@
 
 from flask.json import dumps
 
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 from integration.ggrc.generator import ObjectGenerator
 from ggrc.models import AccessGroup
 from ggrc.models import Product

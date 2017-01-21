@@ -13,7 +13,7 @@ from ggrc.utils import QueryCounter
 from ggrc.views import all_object_views
 from integration.ggrc_workflows.generator import WorkflowsGenerator
 
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 from integration.ggrc.generator import ObjectGenerator
 
 

@@ -7,7 +7,7 @@ from os.path import abspath
 from os.path import dirname
 from os.path import join
 from collections import defaultdict
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 from integration.ggrc.api_helper import Api
 from ggrc.models import all_models
 
