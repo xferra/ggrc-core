@@ -25,8 +25,6 @@ class TestCase(ggrc.TestCase):
         "X-test-only": "true" if dry_run else "false",
         "X-requested-by": "gGRC",
     }
-    if hasattr(g, "cache"):
-      delattr(g, "cache")
     api = Api()
     api.set_user(person)  # Ok if person is None
     response = api.tc.post("/_service/import_csv", data=data, headers=headers)
