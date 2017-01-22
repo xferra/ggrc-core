@@ -15,6 +15,7 @@ from integration.ggrc_workflows.generator import WorkflowsGenerator
 
 from integration.ggrc import TestCase
 from integration.ggrc.generator import ObjectGenerator
+from integration.ggrc.models import factories
 
 
 class TestComprehensiveSheets(TestCase):
@@ -53,7 +54,6 @@ class TestComprehensiveSheets(TestCase):
       for workflow in wfs:
         _, cycle = gen.generate_cycle(workflow)
         self.assertIsNotNone(cycle)
-
 
   def tearDown(self):
     pass
@@ -119,10 +119,12 @@ class TestComprehensiveSheets(TestCase):
 
   def create_custom_attributes(self):
     """Generate custom attributes needed by comprehensive_sheet1.csv."""
-    gen = self.generator.generate_custom_attribute
-    gen("control", title="my custom text", mandatory=True)
-    gen("program", title="my_text", mandatory=True)
-    gen("program", title="my_date", attribute_type="Date")
-    gen("program", title="my_checkbox", attribute_type="Checkbox")
-    gen("program", title="my_dropdown", attribute_type="Dropdown",
-        options="a,b,c,d")
+    CAD = factories.CustomAttributeDefinitionFactory
+    CAD(definition_type="control", title="my custom text", mandatory=True)
+    CAD(definition_type="program", title="my_text", mandatory=True)
+    CAD(definition_type="program", title="my_date", attribute_type="Date")
+    CAD(definition_type="program", title="my_checkbox",
+        attribute_type="Checkbox")
+    CAD(definition_type="program", title="my_dropdown",
+        attribute_type="Dropdown",
+        multi_choice_options="a,b,c,d")
