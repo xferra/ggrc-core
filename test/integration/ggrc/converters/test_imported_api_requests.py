@@ -34,20 +34,26 @@ class TestComprehensiveSheets(TestCase):
   # limit found by trial and error, may need tweaking if models change
   LIMIT = 32
 
+  @classmethod
+  def setUpClass(cls):
+    cls.first_run = True
+
   def setUp(self):
-    TestCase.setUp(self)
-    self.generator = ObjectGenerator()
     self.client.get("/login")
+    self.generator = ObjectGenerator()
+    if TestComprehensiveSheets.first_run:
+      TestComprehensiveSheets.first_run = False
+      TestCase.setUp(self)
 
-    self.create_custom_attributes()
-    filename = "comprehensive_sheet1.csv"
-    self.import_file(filename)
+      self.create_custom_attributes()
+      self.import_file("comprehensive_sheet1.csv")
 
-    gen = WorkflowsGenerator()
-    wfs = all_models.Workflow.eager_query().filter_by(status='Draft').all()
-    for workflow in wfs:
-      _, cycle = gen.generate_cycle(workflow)
-      self.assertIsNotNone(cycle)
+      gen = WorkflowsGenerator()
+      wfs = all_models.Workflow.eager_query().filter_by(status='Draft').all()
+      for workflow in wfs:
+        _, cycle = gen.generate_cycle(workflow)
+        self.assertIsNotNone(cycle)
+
 
   def tearDown(self):
     pass
