@@ -66,6 +66,7 @@
     selected: [],
     entries: [],
     options: [],
+    newEntries: [],
     relevant: [],
     is_snapshotable: false,
     snapshot_scope_id: '',
@@ -214,7 +215,8 @@
           assessmentGenerator: parentScope.attr('assessmentGenerator'),
           is_snapshotable: parentScope.attr('is_snapshotable'),
           snapshot_scope_id: parentScope.attr('snapshot_scope_id'),
-          snapshot_scope_type: parentScope.attr('snapshot_scope_type')
+          snapshot_scope_type: parentScope.attr('snapshot_scope_type'),
+          newEntries: parentScope.attr('newEntries')
         })),
         template: parentScope.attr('template'),
         draw_children: true
@@ -228,6 +230,13 @@
 
         this.setModel();
         this.setBinding();
+      },
+      '.add-button modal:success': function (el, ev, model) {
+        // clear
+        this.scope.attr('mapper.newEntries').replace([]);
+
+        // push new instance
+        this.scope.attr('mapper.newEntries').push(model);
       },
       closeModal: function () {
         this.scope.attr('mapper.is_saving', false);
