@@ -13,11 +13,19 @@
       leftRevisionId: null,
       rightRevisions: [],
       compareIt: function (scope, el, ev) {
-        var currentRevisionID = scope.leftRevisionId;
-        var revisionsLength = scope.rightRevisions.length;
-        var newRevisionID = scope.rightRevisions[revisionsLength - 1].id;
         var view = scope.instance.view;
         var that = this;
+        var currentRevisionID = scope.leftRevisionId;
+        var rightRevisions = scope.rightRevisions;
+        var revisionsLength = rightRevisions.length;
+        var newRevisionID;
+        if (!currentRevisionID || !rightRevisions || !revisionsLength) {
+          scope.instance.snapshot = scope.instance.snapshot.reify();
+          currentRevisionID = scope.instance.snapshot.revision_id;
+          rightRevisions = scope.instance.snapshot.revisions;
+          revisionsLength = rightRevisions.length;
+        }
+        newRevisionID = rightRevisions[revisionsLength - 1].id;
         GGRC.Controllers.Modals.confirm({
           modal_title: 'Compare with the latest version',
           modal_description: 'Loading...',
