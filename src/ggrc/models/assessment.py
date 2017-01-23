@@ -34,7 +34,6 @@ from ggrc.models.relationship import Relatable
 from ggrc.models.relationship import Relationship
 from ggrc.models.track_object_state import HasObjectState
 from ggrc.models.track_object_state import track_state_for_class
-from ggrc.utils import similarity_options as similarity_options_module
 
 
 class AuditRelationship(object):
@@ -185,7 +184,14 @@ class Assessment(statusable.Statusable, AuditRelationship,
       },
   }
 
-  similarity_options = similarity_options_module.ASSESSMENT
+  similarity_options = {
+      "relevant_types": {
+          "Audit": {"weight": 5},
+          "Regulation": {"weight": 3},
+          "Control": {"weight": 10},
+      },
+      "threshold": 5,
+  }
 
   def validate_conclusion(self, value):
     return value if value in self.VALID_CONCLUSIONS else ""

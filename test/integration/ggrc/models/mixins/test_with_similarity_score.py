@@ -6,9 +6,8 @@
 import json
 
 from ggrc import db
-import ggrc.models as models
+from ggrc import models
 from ggrc.snapshotter.rules import Types
-
 
 import integration.ggrc
 import integration.ggrc.generator

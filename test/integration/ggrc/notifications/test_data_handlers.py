@@ -16,8 +16,8 @@ from integration.ggrc import converters
 from integration.ggrc import generator
 
 
-class TestRequestDataHandlers(converters.TestCase):
-  """Test data handlers for various request notifications."""
+class TestAssessmentDataHandlers(converters.TestCase):
+  """Test data handlers for various Assessment notifications."""
 
   def setUp(self):
     converters.TestCase.setUp(self)
