@@ -8,11 +8,11 @@
 from ggrc import db
 from ggrc import models
 from ggrc.converters import errors
-from integration.ggrc import converters
+from integration.ggrc import TestCase
 from flask.json import dumps
 
 
-class TestAssessmentImport(converters.TestCase):
+class TestAssessmentImport(TestCase):
   """Basic Assessment import tests with.
 
   This test suite should test new Assessment imports, exports, and updates.
@@ -22,7 +22,7 @@ class TestAssessmentImport(converters.TestCase):
 
   def setUp(self):
     """Set up for Assessment test cases."""
-    converters.TestCase.setUp(self)
+    TestCase.setUp(self)
     self.client.get("/login")
 
   def test_import_assessments_with_templates(self):
@@ -201,12 +201,12 @@ class TestAssessmentImport(converters.TestCase):
     self._check_csv_response(response, expected_errors)
 
 
-class TestAssessmentExport(converters.TestCase):
+class TestAssessmentExport(TestCase):
   """Test Assessment object export."""
 
   def setUp(self):
     """ Set up for Assessment test cases """
-    converters.TestCase.setUp(self)
+    TestCase.setUp(self)
     self.client.get("/login")
     self.headers = {
         'Content-Type': 'application/json',

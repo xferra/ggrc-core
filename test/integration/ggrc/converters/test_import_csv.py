@@ -4,14 +4,14 @@
 
 from ggrc import models
 from ggrc.converters import errors
-from integration.ggrc import converters
+from integration.ggrc import TestCase
 from integration.ggrc import generator
 
 
-class TestBasicCsvImport(converters.TestCase):
+class TestBasicCsvImport(TestCase):
 
   def setUp(self):
-    converters.TestCase.setUp(self)
+    TestCase.setUp(self)
     self.generator = generator.ObjectGenerator()
     self.client.get("/login")
 

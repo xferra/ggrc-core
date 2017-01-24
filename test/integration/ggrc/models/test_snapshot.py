@@ -5,7 +5,7 @@
 
 from ggrc.app import app
 from ggrc.models import all_models
-from integration.ggrc.converters import TestCase
+from integration.ggrc import TestCase
 from integration.ggrc.models import factories
 
 TEST_MODELS = [
