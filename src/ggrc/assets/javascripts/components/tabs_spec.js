@@ -40,7 +40,9 @@ describe('GGRC.Components.tabPanel', function () {
   var scope;
 
   beforeAll(function () {
-    instance = $(can.view.mustache('<tab-panel></tab-panel>')().children[0]);
+    instance = $(
+      can.view.mustache('<tab-panel></tab-panel>')()
+    ).find('tab-panel')
     scope = instance.scope();
   });
 
