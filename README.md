@@ -143,10 +143,9 @@ Tests are your friend! Keep them running, keep them updated.
 #### For JavaScript tests:
 
 ```sh
-run_karma
+run_karma # To run karma with PhantomJS
+run_karma_chrome # To run karma in host browser (open http://localhost:9876)
 ```
-
-Then open Chrome at URL: <http://localhost:9876>
 
 #### For Python tests:
 
