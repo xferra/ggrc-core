@@ -425,11 +425,10 @@
      * at the end of the list.
      */
     sortWidgets: function () {
+      var MAX_INT = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
       function sortByOrderAttr(widget, widget2) {
-        var order = _.isNumber(widget.order) ?
-                                widget.order : Number.MAX_SAFE_INTEGER;
-        var order2 = _.isNumber(widget2.order) ?
-                                 widget2.order : Number.MAX_SAFE_INTEGER;
+        var order = _.isNumber(widget.order) ? widget.order : MAX_INT;
+        var order2 = _.isNumber(widget2.order) ? widget2.order : MAX_INT;
         return order - order2;
       }
       this.options.widget_list.sort(sortByOrderAttr);
