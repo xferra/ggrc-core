@@ -31,7 +31,7 @@ def get_mapping_names(class_name):
 class TestCustomAttributesDefinitions(TestCase):
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestCustomAttributesDefinitions, self).setUp()
     self.generator = ObjectGenerator()
 
   def test_policy_definitions(self):

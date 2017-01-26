@@ -24,7 +24,7 @@ class TestAssignableNotification(TestCase):
   """Test setting notifications for assignable mixin."""
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestAssignableNotification, self).setUp()
     self.client.get("/login")
     self._fix_notification_init()
     self.api_helper = api_helper.Api()

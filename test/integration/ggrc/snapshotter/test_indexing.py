@@ -34,7 +34,7 @@ class TestSnapshotIndexing(SnapshotterBaseTestCase):
   # pylint: disable=invalid-name,too-many-locals
 
   def setUp(self):
-    SnapshotterBaseTestCase.setUp(self)
+    super(TestSnapshotIndexing, self).setUp()
 
     self.client.get("/login")
     self.headers = {

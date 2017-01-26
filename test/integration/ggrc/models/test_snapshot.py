@@ -116,7 +116,7 @@ class TestSnapshot(TestCase):
 
   def setUp(self):
     """Set up test cases for all tests."""
-    TestCase.clear_data()
+    super(TestSnapshot, self).setUp()
     self._create_cas()
     response = self._import_file("all_snapshottable_objects.csv")
     self._check_csv_response(response, {})

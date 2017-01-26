@@ -14,7 +14,7 @@ class TestCommentObjectOwner(TestCase):
 
   def setUp(self):
     """Setup test case."""
-    TestCase.setUp(self)
+    super(TestCommentObjectOwner, self).setUp()
     self.response = self.client.get("/login")
     self.generator = generator.ObjectGenerator()
 

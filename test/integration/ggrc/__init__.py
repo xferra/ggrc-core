@@ -35,7 +35,7 @@ class SetEncoder(json.JSONEncoder):
     return super(SetEncoder, self).default(obj)
 
 
-class TestCase(BaseTestCase):
+class TestCase(BaseTestCase, object):
   # because it's required by unittests.
 
   """Base test case for all ggrc integration tests."""

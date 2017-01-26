@@ -30,7 +30,7 @@ class TestCycleTaskImportUpdate(TestCase):
   CSV_DIR = join(abspath(dirname(__file__)), "test_csvs/")
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestCycleTaskImportUpdate, self).setUp()
     self.wf_generator = WorkflowsGenerator()
     self.object_generator = ObjectGenerator()
     self.random_objects = self.object_generator.generate_random_objects(2)

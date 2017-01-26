@@ -25,7 +25,7 @@ class TestComprehensiveSheets(TestCase):
   """
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestComprehensiveSheets, self).setUp()
     self.generator = ObjectGenerator()
     self.client.get("/login")
 

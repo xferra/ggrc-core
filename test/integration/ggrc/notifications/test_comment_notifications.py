@@ -21,7 +21,7 @@ class TestCommentNotification(TestCase):
   """Test notification on assessment comments."""
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestCommentNotification, self).setUp()
     self.client.get("/login")
     self._fix_notification_init()
     self.generator = generator.ObjectGenerator()

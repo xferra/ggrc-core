@@ -20,7 +20,7 @@ class TestAssessmentDataHandlers(TestCase):
   """Test data handlers for various Assessment notifications."""
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestAssessmentDataHandlers, self).setUp()
     self.client.get("/login")
     self.api_helper = api_helper.Api()
     self.import_file("assessment_notifications.csv")

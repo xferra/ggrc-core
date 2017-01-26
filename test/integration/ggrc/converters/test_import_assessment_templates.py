@@ -15,7 +15,7 @@ class TestAssessmentTemplatesImport(TestCase):
 
   def setUp(self):
     """Set up for Assessment Template test cases."""
-    TestCase.setUp(self)
+    super(TestAssessmentTemplatesImport, self).setUp()
     self.client.get("/login")
 
   def test_valid_import(self):

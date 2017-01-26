@@ -9,7 +9,7 @@ from integration.ggrc.generator import ObjectGenerator
 class TestBasicCsvImport(TestCase):
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestBasicCsvImport, self).setUp()
     self.generator = ObjectGenerator()
     self.client.get("/login")
 
