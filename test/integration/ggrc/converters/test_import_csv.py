@@ -11,7 +11,7 @@ from integration.ggrc import generator
 class TestBasicCsvImport(TestCase):
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestBasicCsvImport, self).setUp()
     self.generator = generator.ObjectGenerator()
     self.client.get("/login")
 

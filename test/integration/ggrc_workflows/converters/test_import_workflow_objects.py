@@ -27,7 +27,7 @@ class TestWorkflowObjectsImport(TestCase):
   CSV_DIR = join(THIS_ABS_PATH, "test_csvs/")
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestWorkflowObjectsImport, self).setUp()
     self.client.get("/login")
 
   def test_full_good_import(self):

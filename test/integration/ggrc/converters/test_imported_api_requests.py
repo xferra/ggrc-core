@@ -44,7 +44,7 @@ class TestComprehensiveSheets(TestCase):
     self.generator = ObjectGenerator()
     if TestComprehensiveSheets.first_run:
       TestComprehensiveSheets.first_run = False
-      TestCase.setUp(self)
+      super(TestComprehensiveSheets, self).setUp()
 
       self.create_custom_attributes()
       self.import_file("comprehensive_sheet1.csv")

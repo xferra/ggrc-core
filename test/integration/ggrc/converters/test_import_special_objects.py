@@ -16,7 +16,7 @@ class TestSpecialObjects(TestCase):
   """
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestSpecialObjects, self).setUp()
     self.client.get("/login")
     pass
 

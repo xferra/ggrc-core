@@ -9,7 +9,7 @@ from integration.ggrc.generator import ObjectGenerator
 class TestUnmappings(TestCase):
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestUnmappings, self).setUp()
     self.generator = ObjectGenerator()
     self.client.get("/login")
 

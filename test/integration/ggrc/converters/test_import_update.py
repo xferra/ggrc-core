@@ -13,7 +13,7 @@ class TestImportUpdates(TestCase):
   """ Test importing of already existing objects """
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestImportUpdates, self).setUp()
     self.client.get("/login")
 
   def test_policy_basic_update(self):

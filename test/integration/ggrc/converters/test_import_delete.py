@@ -7,7 +7,7 @@ from integration.ggrc import TestCase
 class TestBasicCsvImport(TestCase):
 
   def setUp(self):
-    TestCase.setUp(self)
+    super(TestBasicCsvImport, self).setUp()
     self.client.get("/login")
 
   def test_policy_basic_import(self):

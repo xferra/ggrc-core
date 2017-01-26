@@ -25,7 +25,7 @@ class TestCustomAttributeImportExport(TestCase):
     that is used for sending import/export requests.
     """
     if TestCustomAttributeImportExport._set_up:
-      TestCase.setUp(self)
+      super(TestCustomAttributeImportExport, self).setUp()
       self.generator = ObjectGenerator()
       self.create_custom_attributes()
       self.create_people()
