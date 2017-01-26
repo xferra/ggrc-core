@@ -107,10 +107,13 @@
       // TODO: Currently Query API doesn't support CustomAttributable.
       var isCustomAttr = /CustomAttr/.test(this.options.model.shortName);
       var isTreeView = this instanceof CMS.Controllers.TreeView;
+      var isSubTree = this.options.is_subtree;
+      var pageInstance = GGRC.page_instance();
       var loader;
-      if (!isTreeView || isCustomAttr) {
+      if (!isTreeView || isCustomAttr ||
+        (isSubTree && pageInstance.type === 'Workflow')) {
         loader = this.fetch_list.bind(this);
-      } else if (this.options.attr('is_subtree')) {
+      } else if (isSubTree) {
         loader = this.loadSubTree.bind(this, refetch);
       } else {
         loader = this.loadPage.bind(this);
@@ -323,6 +326,9 @@
         this.options.list.push.apply(this.options.list, preppedItems);
         dfd = this.add_child_lists(preppedItems);
       } else {
+        if (this.options.is_subtree) {
+          this.addSubTreeExpander(items);
+        }
         dfd = can.Deferred().resolve();
       }
 

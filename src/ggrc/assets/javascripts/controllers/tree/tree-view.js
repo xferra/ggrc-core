@@ -269,7 +269,8 @@
           this.page_loader = new GGRC.ListLoaders.TreePageLoader(
             this.options.model, this.options.parent_instance,
             this.options.mapping);
-        } else if (this.options.attr('is_subtree')) {
+        } else if (this.options.attr('is_subtree') &&
+          GGRC.page_instance().type !== 'Workflow') {
           this.page_loader = new GGRC.ListLoaders.SubTreeLoader(
             this.options.model, this.options.parent_instance,
             this.options.mapping);
@@ -841,10 +842,11 @@
       res = $.when.apply($, drawItemsDfds);
 
       res.then(function () {
+        _.defer(this.draw_visible.bind(this));
+      }.bind(this)).always(function () {
         if (this.options.is_subtree) {
           this.addSubTreeExpander(items);
         }
-        _.defer(this.draw_visible.bind(this));
       }.bind(this));
       return res;
     },
@@ -857,6 +859,10 @@
       var element;
       var options;
       var expander;
+
+      if (this.element.find('.sub-tree-expander').length) {
+        return;
+      }
 
       element = this.element.find('.parent-related:first');
       options = {

@@ -292,6 +292,10 @@
     display_subtrees: function (refetch) {
       var childTreeDfds = [];
       var that = this;
+      var parentCtrl = this.element.closest('section')
+        .find('.cms_controllers_tree_view').control();
+
+      refetch = refetch || parentCtrl.options.showMappedToAllParents;
 
       this.element.find('.' + CMS.Controllers.TreeView._fullName)
         .each(function (_, el) {
