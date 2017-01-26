@@ -748,7 +748,7 @@ def load_permissions_for(user):
                                       [conditions][context][context_conditions]
 
   'action' is one of 'create', 'read', 'update', 'delete'.
-  'resource_type' is the name of a valid gGRC resource type.
+  'resource_type' is the name of a valid GGRC resource type.
   'contexts' is a list of context_id where the action is allowed.
   'conditions' is a dictionary of 'context_conditions' indexed by 'context'
     where 'context' is a context_id.

@@ -1,7 +1,7 @@
 # Copyright (C) 2017 Google Inc.
 # Licensed under http://www.apache.org/licenses/LICENSE-2.0 <see LICENSE file>
 
-"""Utilties to deal with introspecting gGRC models for publishing, creation,
+"""Utilties to deal with introspecting GGRC models for publishing, creation,
 and update from resource format representations, such as JSON."""
 
 from sqlalchemy.sql.schema import UniqueConstraint

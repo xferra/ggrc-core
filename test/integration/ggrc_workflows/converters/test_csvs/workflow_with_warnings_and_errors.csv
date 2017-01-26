@@ -1,6 +1,6 @@
 CORE-3274,,,,,,,,
 Person,name,email,company,role,,,,
-,user 1,user1@ggrc.com,google,Admin ,,,,
+,user 1,user1@ggrc.com,google,Administrator,,,,
 ,,,,,,,,
 Object type,,,,,,,,
 Workflow,code*,title*,description ,manager,frequency,force real-time email updates,custom email message,

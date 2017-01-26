@@ -39,7 +39,7 @@ class TestSnapshotIndexing(SnapshotterBaseTestCase):
     self.client.get("/login")
     self.headers = {
         'Content-Type': 'application/json',
-        "X-Requested-By": "gGRC",
+        "X-Requested-By": "GGRC",
     }
 
   def test_create_indexing(self):

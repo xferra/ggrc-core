@@ -76,8 +76,9 @@ class TestAuditRBAC(TestCase):
     return all_errors
 
   def test_read_access_on_mapped(self):
-    """Test if people have read access to audit objects. All users except
-       creator@test.com should have read access."""
+    """Test if people have read access to mapped objects.
+
+    All users except creator@test.com should have read access."""
     expected_statuses = defaultdict(lambda: 200)
     for exception in ("creator@test.com",):
       expected_statuses[exception] = 403
@@ -85,9 +86,10 @@ class TestAuditRBAC(TestCase):
     assert not errors, "\n".join(errors)
 
   def test_update_access_on_mapped(self):
-    """Test if people have upate access to audit objects. All users except
-       creator@test.com, reader@test.com, creatorpr@test.com, readerpr@test.com
-       should have update access."""
+    """Test if people have upate access to mapped objects.
+
+    All users except creator@test.com, reader@test.com, creatorpr@test.com,
+    readerpr@test.com should have update access."""
     expected_statuses = defaultdict(lambda: 200)
     for exception in ("creator@test.com", "reader@test.com",
                       "creatorpr@test.com", "readerpr@test.com"):

@@ -131,7 +131,7 @@ class TestWorkflowObjectsImport(TestCase):
     response = self.import_file(filename)
     expected_errors = {
         "Task Group Task": {
-            "row_warnings": set([
+            "row_warnings": {
                 errors.WRONG_REQUIRED_VALUE.format(
                     line=38, value="aaaa", column_name="Task Type"
                 ),
@@ -141,7 +141,7 @@ class TestWorkflowObjectsImport(TestCase):
                 errors.MISSING_VALUE_WARNING.format(
                     line=40, default_value="Rich Text", column_name="Task Type"
                 ),
-            ])
+            }
         },
     }
     self._check_csv_response(response, expected_errors)
@@ -180,7 +180,7 @@ class TestWorkflowObjectsImport(TestCase):
 
     expected_errors = {
         "Task Group Task": {
-            "row_errors": set([
+            "row_errors": {
                 errors.INVALID_START_END_DATES.format(
                     line=4, start_date="Start date", end_date="End date"),
                 errors.INVALID_START_END_DATES.format(
@@ -189,7 +189,7 @@ class TestWorkflowObjectsImport(TestCase):
                     line=6, start_date="Start date", end_date="End date"),
                 errors.INVALID_START_END_DATES.format(
                     line=7, start_date="Start date", end_date="End date"),
-            ])
+            }
         },
     }
     self._check_csv_response(response, expected_errors)
@@ -209,12 +209,12 @@ class TestWorkflowObjectsImport(TestCase):
 
     expected_errors = {
         "Task Group Task": {
-            "row_warnings": set([
+            "row_warnings": {
                 errors.WRONG_DATE_FORMAT.format(line=15, column_name="Start"),
                 errors.WRONG_DATE_FORMAT.format(line=15, column_name="End"),
                 errors.WRONG_DATE_FORMAT.format(line=16, column_name="Start"),
                 errors.WRONG_DATE_FORMAT.format(line=17, column_name="End"),
-            ]),
+            },
         },
     }
     self._check_csv_response(response, expected_errors)

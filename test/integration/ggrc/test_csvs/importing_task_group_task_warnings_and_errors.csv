@@ -50,4 +50,4 @@ Workflow,Code*,Title*,Description,Manager*,Member,Delete,Frequency*,Custom email
 ,,,,,,,,,
 Object type,,,,,,,,,
 Person,name,email,role,,,,,,
-,kostya,kostya@reciprocitylabs.com,Admin,,,,,,
+,kostya,kostya@reciprocitylabs.com,Administrator,,,,,,
