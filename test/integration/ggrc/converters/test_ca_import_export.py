@@ -32,7 +32,7 @@ class TestCustomAttributeImportExport(TestCase):
     self.client.get("/login")
     self.headers = {
         'Content-Type': 'application/json',
-        "X-Requested-By": "gGRC",
+        "X-Requested-By": "GGRC",
         "X-export-view": "blocks",
     }
     TestCustomAttributeImportExport._set_up = False

@@ -210,7 +210,7 @@ class TestAssessmentExport(TestCase):
     self.client.get("/login")
     self.headers = {
         'Content-Type': 'application/json',
-        "X-Requested-By": "gGRC",
+        "X-Requested-By": "GGRC",
         "X-export-view": "blocks",
     }
 

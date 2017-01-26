@@ -17,7 +17,7 @@ from lib.utils.test_utils import append_random_string
 
 class RestClient(object):
   """Used for HTTP interactions with App's REST API"""
-  BASIC_HEADERS = {'X-Requested-By': 'gGRC',
+  BASIC_HEADERS = {'X-Requested-By': 'GGRC',
                    'Content-Type': 'application/json',
                    'Accept-Encoding': 'gzip, deflate'}
 

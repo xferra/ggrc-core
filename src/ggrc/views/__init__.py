@@ -253,7 +253,7 @@ def index():
               For any questions, please contact your administrator.""",
           "alert alert-warning")
   about_url = getattr(settings, "ABOUT_URL", None)
-  about_text = getattr(settings, "ABOUT_TEXT", "About gGRC")
+  about_text = getattr(settings, "ABOUT_TEXT", "About GGRC")
   return render_template(
       "welcome/index.haml",
       about_url=about_url,

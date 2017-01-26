@@ -1,14 +1,14 @@
 # Copyright (C) 2017 Google Inc.
 # Licensed under http://www.apache.org/licenses/LICENSE-2.0 <see LICENSE file>
 
-"""All gGRC REST services."""
+"""All GGRC REST services."""
 
 from ggrc.services.common import ReadOnlyResource
 from ggrc.services.registry import service
 
 
 def contributed_services():
-  """The list of all gGRC collection services as a list of
+  """The list of all GGRC collection services as a list of
   (url, ModelClass) tuples.
   """
   import ggrc.models.all_models as models
@@ -94,7 +94,7 @@ def init_extra_services(app):
 
 
 def init_all_services(app):
-  """Register all gGRC REST services with the Flask application ``app``."""
+  """Register all GGRC REST services with the Flask application ``app``."""
   from ggrc.extensions import get_extension_modules
   from ggrc.login import login_required
 

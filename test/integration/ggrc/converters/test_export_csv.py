@@ -18,7 +18,7 @@ class TestExportEmptyTemplate(TestCase):
     self.client.get("/login")
     self.headers = {
         'Content-Type': 'application/json',
-        "X-Requested-By": "gGRC",
+        "X-Requested-By": "GGRC",
         "X-export-view": "blocks",
     }
 
@@ -62,7 +62,7 @@ class TestExportSingleObject(TestCase):
     self.client.get("/login")
     self.headers = {
         'Content-Type': 'application/json',
-        "X-Requested-By": "gGRC",
+        "X-Requested-By": "GGRC",
         "X-export-view": "blocks",
     }
 
@@ -351,7 +351,7 @@ class TestExportMultipleObjects(TestCase):
     self.client.get("/login")
     self.headers = {
         'Content-Type': 'application/json',
-        "X-Requested-By": "gGRC",
+        "X-Requested-By": "GGRC",
         "X-export-view": "blocks",
     }
 
