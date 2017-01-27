@@ -77,11 +77,10 @@
       prepareInstances: function (data) {
         return data.Revision.values.map(function (value) {
           var content = value.content;
+          var model = CMS.Models[value.resource_type];
           content.isRevision = true;
-          content.class = {
-            is_custom_attributable: false
-          };
-          return {instance: content};
+          content.type = value.resource_type;
+          return {instance: new model(content)};
         });
       },
       updateRevision: function () {
@@ -110,7 +109,8 @@
        * @return {Object} - jQuery object
        */
       getAttributes: function ($infoPanes, index) {
-        return $($infoPanes[index]).find('.row-fluid h6 + *');
+        var selector = '.row-fluid h6 + *, .row-fluid .state-value';
+        return $($infoPanes[index]).find(selector);
       },
 
       /**

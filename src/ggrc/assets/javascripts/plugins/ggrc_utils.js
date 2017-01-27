@@ -866,7 +866,7 @@
      * @return {Boolean} True or False
      */
     function isSnapshot(instance) {
-      return instance && instance.snapshot;
+      return instance && (instance.snapshot || instance.isRevision);
     }
 
     /**

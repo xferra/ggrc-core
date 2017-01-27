@@ -340,12 +340,16 @@
         GGRC.current_user.id, GGRC.current_user);
       var auditLead;
 
-      if (!newObjectForm) {
-        return;
+      if (pageInstance && (!this.audit || !this.audit.id || !this.audit.type)) {
+        if (pageInstance.type === 'Audit') {
+          this.attr('audit', pageInstance);
+        } else if (this.scopeObject) {
+          this.audit = this.scopeObject;
+        }
       }
 
-      if (pageInstance && pageInstance.type === 'Audit' && !this.audit) {
-        this.attr('audit', pageInstance);
+      if (!newObjectForm) {
+        return;
       }
 
       if (this.audit) {

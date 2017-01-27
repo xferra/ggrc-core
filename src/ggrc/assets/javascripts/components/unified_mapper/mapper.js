@@ -247,29 +247,36 @@
       deferredSave: function () {
         var source = this.scope.attr('deferred_to').instance ||
           this.scope.attr('mapper.object');
+        var data = {};
 
-        var data = {
-          multi_map: true,
-          arr: _.compact(_.map(
-            this.scope.attr('mapper.selected'),
-            function (desination) {
-              var isAllowed = GGRC.Utils.allowed_to_map(source, desination);
-              var instance =
-                can.makeArray(this.scope.attr('mapper.entries'))
-                  .map(function (entry) {
-                    return entry.instance || entry;
-                  })
-                  .find(function (instance) {
-                    return instance.id === desination.id &&
-                      instance.type === desination.type;
-                  });
-              if (instance && isAllowed) {
-                return instance;
-              }
-            }.bind(this)
-          ))
-        };
-
+        if (this.scope.attr('mapper.useSnapshots')) {
+          data = {
+            multi_map: true,
+            arr: this.scope.attr('mapper.selected')
+          };
+        } else {
+          data = {
+            multi_map: true,
+            arr: _.compact(_.map(
+              this.scope.attr('mapper.selected'),
+              function (desination) {
+                var isAllowed = GGRC.Utils.allowed_to_map(source, desination);
+                var instance =
+                  can.makeArray(this.scope.attr('mapper.entries'))
+                    .map(function (entry) {
+                      return entry.instance || entry;
+                    })
+                    .find(function (instance) {
+                      return instance.id === desination.id &&
+                        instance.type === desination.type;
+                    });
+                if (instance && isAllowed) {
+                  return instance;
+                }
+              }.bind(this)
+            ))
+          };
+        }
         this.scope.attr('deferred_to').controller.element.trigger(
           'defer:add', [data, {map_and_save: true}]);
         this.closeModal();
@@ -395,8 +402,12 @@
         this.scope.attr('mapper.contact', null);
         this.scope.attr('mapper.contactEmail', null);
         // Edge case for Assessment Generation
+        // and objects that are not in Snapshot scope
         if (!this.scope.attr('mapper.assessmentGenerator')) {
-          this.scope.attr('mapper.relevant').replace([]);
+          if (!GGRC.Utils.Snapshots.isInScopeModel(
+            this.scope.attr('mapper.object'))) {
+            this.scope.attr('mapper.relevant').replace([]);
+          }
         }
         this.setModel();
         this.setBinding();
