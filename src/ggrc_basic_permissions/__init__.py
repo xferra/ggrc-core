@@ -797,6 +797,31 @@ def load_permissions_for(user):
   with benchmark("load_permissions > load backlog workflows"):
     load_backlog_workflows(permissions)
 
+  # If user has 'update' rights for 'Assessment' he should have the same
+  # rights for linked 'Document'. In such case user have opportunity to
+  # remove mapping from 'Assessment' to 'Document'.
+  relationship_objs = db.session.query(all_models.Relationship).filter(
+      and_(
+          all_models.Relationship.source_type == "Assessment",
+          all_models.Relationship.destination_type == "Document"
+      )
+  ).all()
+  relationship_dict = {}
+  for rel in relationship_objs:
+    relationship_dict.setdefault(rel.source_id, [])
+    relationship_dict[rel.source_id].append(rel.id)
+  permissions.setdefault(
+      "delete", {}).setdefault("Relationship", {}).setdefault("resources", [])
+  for assess_id in permissions.get("update", {}).get(
+          "Assessment", {}).get("resources", []):
+    if assess_id in relationship_dict.keys():
+      permissions["delete"]["Relationship"]["resources"].extend(
+          relationship_dict[assess_id]
+      )
+  permissions["delete"]["Relationship"]["resources"] = list(
+      set(permissions["delete"]["Relationship"]["resources"])
+  )
+
   with benchmark("load_permissions > store results into memcache"):
     store_results_into_memcache(permissions, cache, key)
 
