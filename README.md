@@ -163,6 +163,12 @@ This will run the tests on each file update.
 cd test/unit; sniffer
 ```
 
+You can drop into ipdb debugger on failures by running:
+
+```sh
+run_pytests --ipdb-failures
+```
+
 #### For Selenium tests:
 
 On the host machine in the root of the repository run:
