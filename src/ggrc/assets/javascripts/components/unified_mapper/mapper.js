@@ -231,7 +231,13 @@
         this.setModel();
         this.setBinding();
       },
+      '.add-button modal:added': function (el, ev, model) {
+        this.addNewEntry(model);
+      },
       '.add-button modal:success': function (el, ev, model) {
+        this.addNewEntry(model);
+      },
+      addNewEntry: function (model) {
         // clear
         this.scope.attr('mapper.newEntries').replace([]);
 
