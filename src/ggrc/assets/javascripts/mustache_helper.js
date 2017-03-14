@@ -3530,4 +3530,22 @@ Example:
       return options.inverse(options.contexts);
     }
   );
+
+  Mustache.registerHelper('hasQuestions', function (model, options) {
+    model = resolve_computed(model);
+    return GGRC.Utils.GGRCQ.hasQuestions(model) ?
+      options.fn(this) :
+      options.inverse(this);
+  });
+
+  Mustache.registerHelper('getQuestionsUrl', function (instance, options) {
+    var model;
+    var id;
+    instance = resolve_computed(instance);
+    model = instance.class.title_singular;
+    id = GGRC.Utils.Snapshots.isSnapshot(instance) ?
+      instance.snapshot.child_id :
+      instance.id;
+    return GGRC.Utils.GGRCQ.getQuestionsUrl(id, model);
+  });
 })(this, jQuery, can);

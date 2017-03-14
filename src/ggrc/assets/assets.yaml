@@ -45,6 +45,7 @@ dashboard-js-files:
   - plugins/utils/query-api-utils.js
   - plugins/utils/current-page-utils.js
   - plugins/utils/state-utils.js
+  - plugins/utils/ggrcq-utils.js
   - plugins/datepicker.js
   - plugins/can_control.js
   - plugins/wysiwyg.js
@@ -313,6 +314,7 @@ dashboard-js-template-files:
   - base_objects/dropdown_menu.mustache
   - base_objects/dropdown_menu_tier2.mustache
   - base_objects/view_link.mustache
+  - base_objects/questions_link.mustache
   - base_objects/unmap.mustache
   - base_objects/map_related_modal_content.mustache
   - base_objects/mappings_detail.mustache
