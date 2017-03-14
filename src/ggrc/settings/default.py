@@ -118,3 +118,6 @@ LOGGING_LOGGERS = {
 
 
 DEBUG_BENCHMARK = os.environ.get("GGRC_BENCHMARK")
+
+# GGRCQ integration
+GGRC_Q_INTEGRATION_URL = os.environ.get('GGRC_Q_INTEGRATION_URL', '')
