@@ -78,3 +78,14 @@
     margin-top: 0;
   }
 }
+
+.question-link {
+    display: inline-block;
+    padding-top: 6px;
+    padding-right: 10px;
+    i {
+      color: $blue;
+      padding-left: 4px;
+      font-size: 13px;
+    }
+}

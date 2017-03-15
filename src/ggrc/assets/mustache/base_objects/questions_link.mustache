@@ -4,10 +4,8 @@
 }}
 
 {{#hasQuestions instance.class.title_singular}}
-  <li>
-    <a href="{{getQuestionsUrl instance}}" target="_self">
-      <i class="fa fa-question"></i>
-      Open Q&A
+    <a href="{{getQuestionsUrl instance}}" class="question-link">
+      Questions & Answers
+      <i class="fa fa-external-link"></i>
     </a>
-  </li>
 {{/hasQuestions}}

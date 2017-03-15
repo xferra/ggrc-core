@@ -2,8 +2,10 @@
     Copyright (C) 2017 Google Inc.
     Licensed under http://www.apache.org/licenses/LICENSE-2.0 <see LICENSE file>
 }}
-
+ 
 <div class="info-pane-utility">
+    {{> '/static/mustache/base_objects/questions_link.mustache'}}
+
     {{#if instance.snapshot}}
         {{> '/static/mustache/snapshots/dropdown_menu.mustache'}}
     {{else}}
