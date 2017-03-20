@@ -4,7 +4,7 @@
 }}
  
 <div class="info-pane-utility">
-    {{> '/static/mustache/base_objects/questions_link.mustache'}}
+    <questions-link instance="instance"></questions-link>
 
     {{#if instance.snapshot}}
         {{> '/static/mustache/snapshots/dropdown_menu.mustache'}}
