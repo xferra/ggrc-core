@@ -16,7 +16,7 @@
     mixins: [
       'ownable', 'contactable', 'unique_title',
       'autoStatusChangeable', 'timeboxed', 'mapping-limit',
-      'inScopeObjects'
+      'inScopeObjects', 'updateCounter'
     ],
     is_custom_attributable: true,
     defaults: {

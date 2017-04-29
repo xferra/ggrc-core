@@ -307,4 +307,15 @@
       }
     }
   }, {});
+
+  /**
+   * A mixin to increase the counter of updates for current model type
+   *
+   * @class CMS.Models.Mixins.updateCounter
+   */
+  can.Model.Mixin('updateCounter', {
+    after_save: function () {
+      GGRC.Utils.Model.incrementUpdateCount(this.type);
+    }
+  });
 })(window.can, window.GGRC);

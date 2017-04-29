@@ -51,6 +51,7 @@ dashboard-js-files:
   - plugins/utils/ggrcq-utils.js
   - plugins/utils/tree-view-utils.js
   - plugins/utils/dashboards-utils.js
+  - plugins/utils/model-utils.js
   - plugins/datepicker.js
   - plugins/can_control.js
   - plugins/wysiwyg.js

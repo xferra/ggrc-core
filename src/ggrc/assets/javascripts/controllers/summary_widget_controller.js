@@ -92,11 +92,15 @@
       var that = this;
       var query = GGRC.Utils.CurrentPage;
       var chartOptions = this.options.context.charts[type];
-      // Note that chart will be refreshed only if counts were changed.
-      // State changes are not checked.
+      // Note that chart will be refreshed only if:
+      // 1. counts were changed;
+      // 2. any assessment status was changed.
       var countsChanged = query.getCounts().attr(type) !==
                           chartOptions.attr('total');
-      if (chartOptions.attr('isInitialized') && !countsChanged) {
+      var updatesChanged = GGRC.Utils.Model.getUpdateCount(type) !==
+                           chartOptions.attr('version');
+      if (chartOptions.attr('isInitialized') &&
+        !countsChanged && !updatesChanged) {
         return;
       }
       chartOptions.attr('isInitialized', true);
@@ -210,6 +214,7 @@
     },
     setState: function (type, data, isLoading) {
       var chartOptions = this.options.context.charts[type];
+      chartOptions.attr('version', GGRC.Utils.Model.getUpdateCount(type));
       chartOptions.attr('total', data.total);
       chartOptions.attr('any', data.total > 0);
       chartOptions.attr('none', isLoading || data.total === 0);
